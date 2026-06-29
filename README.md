@@ -66,19 +66,7 @@ Instead of answering from its own knowledge, the LLM decides which tool to invok
 
 ---
 
-## Example Questions
 
-```
-Who owns the Password Policy?
-
-Show me all active Security policies.
-
-Which controls belong to the Compliance department?
-
-Who are the tech leads?
-
-List all evidence assigned to John.
-```
 
 ---
 
@@ -98,17 +86,86 @@ RAG_PROJ/
 │
 └── README.md
 ```
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10+
+- Git
+- An OpenAI API key
+
+### Clone the repository
+
+```bash
+git clone https://github.com/HotWheelsEnjoyer/GRC-Copilot.git
+cd GRC-Copilot
+```
+
+### Create a virtual environment
+
+**Windows**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure environment variables
+
+Create a `.env` file in the project root and add:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
+If your project requires additional variables (database settings, LangSmith keys, etc.), add them here as well.
+
+### Apply database migrations
+
+```bash
+cd backend
+python manage.py migrate
+```
+
+### (Optional) Load sample data
+
+If you have fixtures:
+
+```bash
+python manage.py loaddata sample_data.json
+```
+
+or run your custom seed script.
+
+### Start the Django server
+
+```bash
+python manage.py runserver
+```
+
+Open your browser and navigate to:
+
+```
+http://127.0.0.1:8000/
+```
+
+Log in with one of the sample user accounts and start chatting with the assistant.
 
 ---
 
-## Key Concepts Demonstrated
+## Example Prompts
 
-- Agentic AI
-- LLM Tool Calling
-- Database Grounding
-- Role-Based Authorization
-- Django ORM
-- Modular Backend Design
+- Show me all active Security policies.
+- Who owns the Password Policy?
+- List all controls for the IT department.
+- Show me all evidence assigned to John.
+- Who are the tech leads?
 
 ---
 
